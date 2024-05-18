@@ -1,3 +1,3 @@
 ### Hi there 👋
 
-Please visit Linedin for the profile: [Linudin Profile](https://www.linkedin.com/in/nipunap/)
+Please visit Linkedin for the profile: [Linkedin Profile](https://www.linkedin.com/in/nipunap/)
