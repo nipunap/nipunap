@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Nipuna Perera</title>
+    <meta name="description" content="Professional CV of Nipuna Perera, Senior Staff Database Reliability Engineer">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .cv-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .cv-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(0, 255, 0, 0.05);
+            border: 1px solid var(--terminal-green-dim);
+            border-radius: 8px;
+        }
+        
+        .cv-header h1 {
+            color: var(--terminal-green-bright);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cv-header .title {
+            color: var(--terminal-cyan);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cv-header .location {
+            color: var(--terminal-yellow);
+            font-size: 1.1rem;
+        }
+        
+        .cv-section {
+            margin-bottom: 2.5rem;
+            background: rgba(17, 24, 39, 0.03);
+            border: 1px solid var(--terminal-border);
+            border-radius: 5px;
+            padding: 1.5rem;
+        }
+        
+        .cv-section h2 {
+            color: var(--terminal-cyan);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--terminal-green-dim);
+            padding-bottom: 0.5rem;
+        }
+        
+        .cv-section h3 {
+            color: var(--terminal-yellow);
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.5rem 0;
+        }
+        
+        .job-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--terminal-border);
+        }
+        
+        .job-item:last-child {
+            border-bottom: none;
+        }
+        
+        .job-title {
+            color: var(--terminal-green-bright);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .company {
+            color: var(--terminal-cyan);
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .duration {
+            color: var(--terminal-magenta);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .job-description ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .job-description li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--terminal-green);
+        }
+        
+        .job-description li:before {
+            content: "▶";
+            color: var(--terminal-green-dim);
+            position: absolute;
+            left: 0;
+        }
+        
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 1rem 0;
+        }
+        
+        .skill-tag {
+            background: rgba(0, 255, 0, 0.1);
+            border: 1px solid var(--terminal-green-dim);
+            color: var(--terminal-green-bright);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--terminal-green);
+        }
+        
+        .contact-item i {
+            color: var(--terminal-cyan);
+            width: 16px;
+        }
+        
+        .contact-item a {
+            color: var(--terminal-green-bright);
+            text-decoration: none;
+        }
+        
+        .contact-item a:hover {
+            color: var(--terminal-white);
+            text-shadow: 0 0 5px var(--terminal-green);
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--terminal-cyan);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            color: var(--terminal-white);
+            text-shadow: 0 0 5px var(--terminal-cyan);
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal">
+        <div class="terminal-header">
+            <div class="terminal-buttons">
+                <span class="btn-close"></span>
+                <span class="btn-minimize"></span>
+                <span class="btn-maximize"></span>
+            </div>
+            <div class="terminal-title">nipuna@localhost:~/cv$</div>
+        </div>
+        
+        <div class="terminal-body">
+            <div class="terminal-content">
+                <div class="command-line">
+                    <span class="prompt">nipuna@localhost:~/cv$</span>
+                    <span class="command">cat cv.txt</span>
+                </div>
+                <div class="output">
+                    <div class="cv-content">
+                        <a href="index.html" class="back-link">
+                            <i class="fas fa-arrow-left"></i> Back to home
+                        </a>
+                        
+                        <div class="cv-header">
+                            <h1>NIPUNA PERERA</h1>
+                            <div class="title">Senior Staff Database Reliability Engineer</div>
+                            <div class="location">Dublin, County Dublin, Ireland</div>
+                            <div class="contact-info">
+                                <div class="contact-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <a href="mailto:nipunap@gmail.com">nipunap@gmail.com</a>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fab fa-linkedin"></i>
+                                    <a href="https://linkedin.com/in/nipunap" target="_blank">linkedin.com/in/nipunap</a>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Dublin, Ireland</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cv-section">
+                            <h2>Professional Summary</h2>
+                            <p>Seasoned Database Reliability Engineer with 16+ years of experience specializing in managing complex database environments to ensure robustness and high availability. Currently at Udemy with over 3 years as Senior Staff Datastore Reliability Engineer, successfully scaling Redis clusters beyond 1TB and conducting extensive R&D. Deep expertise in Linux internals, bash scripting, and extensive experience with MySQL since version 4.2. Previously led EMEA DBA team at Zendesk, maintaining 99.95% availability for AWS Aurora/RDS MySQL production environments supporting 100,000+ customers.</p>
+                        </div>
+
+                        <div class="cv-section">
+                            <h2>Professional Experience</h2>
+                            
+                            <div class="job-item">
+                                <div class="job-title">Senior Staff Database Reliability Engineer</div>
+                                <div class="company">Udemy</div>
+                                <div class="duration">January 2022 - Present (3+ years) • Dublin, Ireland</div>
+                                <div class="job-description">
+                                    <ul>
+                                        <li>Managed and optimized complex database environments on AWS using MySQL, ProxySQL, Redis, Kafka, RabbitMQ, AWS DynamoDB, and Aurora MySQL/PostgreSQL</li>
+                                        <li>Developed Python scripts for automation and benchmark testing, contributing to efficient operations</li>
+                                        <li>Successfully scaled large-scale Redis clusters exceeding 1TB in capacity</li>
+                                        <li>Developed Debezium and Mirrormaker Terraform modules for AWS MSK and deployed in production</li>
+                                        <li>Consulted on Kafka Connect to MSK migration projects</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="job-item">
+                                <div class="job-title">Team Lead ← Staff Engineer ← Senior Database Administrator</div>
+                                <div class="company">Zendesk</div>
+                                <div class="duration">August 2016 - January 2022 (5.5 years) • Dublin, Ireland</div>
+                                <div class="job-description">
+                                    <ul>
+                                        <li>Led EMEA DBA team managing 200+ clusters exceeding 3TB each, supporting 100,000+ customers</li>
+                                        <li>Implemented robust monitoring practices with AWS CloudWatch and CloudFormation, ensuring 99.95% availability</li>
+                                        <li>Developed database analytics platforms using Node.js and Python, enhancing data-driven decision-making</li>
+                                        <li>Automated processes using bash and Python to streamline operations</li>
+                                        <li>Developed and tested AWS Lambda functions for efficient cloud computing</li>
+                                        <li>Implemented automation for schema changes to improve database efficiency</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="job-item">
+                                <div class="job-title">Senior Technical Lead ← Technical Lead ← Senior Database Administrator</div>
+                                <div class="company">CAKE Engineering</div>
+                                <div class="duration">August 2013 - August 2016 (3 years) • Colombo, Sri Lanka</div>
+                                <div class="job-description">
+                                    <ul>
+                                        <li>Managed and optimized complex database environments including MySQL, CouchDB, Cassandra, and Titan</li>
+                                        <li>Spearheaded data science initiatives, introducing machine learning algorithms and developing innovative data products</li>
+                                        <li>Achieved 99.999% uptime record, ensuring high levels of system availability</li>
+                                        <li>Implemented Puppet automation for configuration management</li>
+                                        <li>Developed backup solutions using AWS S3 and Percona Toolkit</li>
+                                        <li>Pioneered Data Science initiative managing 150+ SQL/NoSQL database nodes</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="job-item">
+                                <div class="job-title">Senior Systems Engineer</div>
+                                <div class="company">Colombo Stock Exchange</div>
+                                <div class="duration">August 2012 - August 2013 (1 year) • Colombo, Sri Lanka</div>
+                                <div class="job-description">
+                                    <ul>
+                                        <li>Designed software for datawall screen using Oracle 11g on Linux, JavaScript, HTML5, and PHP</li>
+                                        <li>Developed the first mobile application for the stock exchange using Android and Java 1.6</li>
+                                        <li>Oversaw day-to-day market open and close activities</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="job-item">
+                                <div class="job-title">Technical Team Lead</div>
+                                <div class="company">hSenid Mobile Solutions</div>
+                                <div class="duration">July 2007 - August 2012 (5+ years) • Sri Lanka, Brunei, Singapore</div>
+                                <div class="job-description">
+                                    <ul>
+                                        <li>Led cross-functional teams in implementation and deployment of telco top-up systems</li>
+                                        <li>Designed RFP proposals and technology solutions for telecommunications industry</li>
+                                        <li>Provided 24x7 support for deployed software solutions</li>
+                                        <li>Managed clients and third-party hardware vendors</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="job-item">
+                                <div class="job-title">Temporary Instructor</div>
+                                <div class="company">Center of Information Technology, <a href="https://www.pdn.ac.lk/" target="_blank" rel="noopener">University of Peradeniya</a></div>
+                                <div class="duration">July 2006 - July 2007 (1 year) • Peradeniya, Sri Lanka</div>
+                                <div class="job-description">
+                                    <ul>
+                                        <li>Conducted lectures for 4th year students of Faculty of Arts</li>
+                                        <li>Managed CIT network infrastructure</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cv-section">
+                            <h2>Top Skills</h2>
+                            <div class="skills-grid">
+                                <span class="skill-tag">Server Architecture</span>
+                                <span class="skill-tag">Technical Leadership</span>
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">MySQL</span>
+                                <span class="skill-tag">Redis</span>
+                                <span class="skill-tag">AWS</span>
+                                <span class="skill-tag">Kubernetes</span>
+                                <span class="skill-tag">Linux</span>
+                                <span class="skill-tag">Kafka</span>
+                                <span class="skill-tag">PostgreSQL</span>
+                                <span class="skill-tag">Bash Scripting</span>
+                                <span class="skill-tag">DynamoDB</span>
+                                <span class="skill-tag">ProxySQL</span>
+                            </div>
+                        </div>
+
+                        <div class="cv-section">
+                            <h2>Certifications</h2>
+                            <ul>
+                                <li>AWS Certified Database – Specialty</li>
+                                <li>Oracle Certified Professional, MySQL 5.6 Database Administrator</li>
+                                <li>Site Reliability Engineering: Measuring and Managing Reliability</li>
+                                <li>The Data Scientist's Toolbox</li>
+                                <li>Python Object-Oriented Programming</li>
+                            </ul>
+                        </div>
+
+                        <div class="cv-section">
+                            <h2>Languages</h2>
+                            <ul>
+                                <li><strong>Sinhalese</strong> - Native or Bilingual</li>
+                                <li><strong>English</strong> - Professional Working</li>
+                            </ul>
+                        </div>
+
+                        <div class="cv-section">
+                            <h2>Education</h2>
+                            <div class="job-item">
+                                <div class="job-title">Bachelor of Science</div>
+                                <div class="company"><a href="https://www.pdn.ac.lk/" target="_blank" rel="noopener">University of Peradeniya</a></div>
+                                <div class="duration">Physics, Mathematics, Statistics (2004-2007)</div>
+                            </div>
+                            <div class="job-item">
+                                <div class="job-title">Advanced Level</div>
+                                <div class="company"><a href="https://dharmaraja.lk/" target="_blank" rel="noopener">Dharmaraja College, Kandy</a></div>
+                                <div class="duration">Mathematics/Physics (1989-2002)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

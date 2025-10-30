@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Nipuna Perera</title>
+    <meta name="description" content="The page you're looking for doesn't exist.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .error-code {
+            color: var(--terminal-red);
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 2rem 0 1rem 0;
+            text-shadow: 0 0 10px rgba(185, 28, 28, 0.5);
+        }
+        
+        .error-message {
+            color: var(--terminal-yellow);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .suggestions {
+            margin: 2rem 0;
+        }
+        
+        .suggestions h3 {
+            color: var(--terminal-cyan);
+            margin-bottom: 1rem;
+        }
+        
+        .suggestions ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .suggestions li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--terminal-green);
+        }
+        
+        .suggestions li:before {
+            content: "▶";
+            color: var(--terminal-green-bright);
+            position: absolute;
+            left: 0;
+        }
+        
+        .suggestions a {
+            color: var(--terminal-green-bright);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .suggestions a:hover {
+            color: var(--terminal-cyan);
+            text-shadow: 0 0 5px rgba(14, 165, 233, 0.5);
+        }
+        
+        .ascii-error {
+            color: var(--terminal-red);
+            font-size: 10px;
+            line-height: 1;
+            margin: 2rem 0;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal">
+        <div class="terminal-header">
+            <div class="terminal-buttons">
+                <span class="btn-close"></span>
+                <span class="btn-minimize"></span>
+                <span class="btn-maximize"></span>
+            </div>
+            <div class="terminal-title">nipuna@localhost:~$ 404</div>
+        </div>
+        
+        <div class="terminal-body">
+            <div class="terminal-content">
+                <div class="command-line">
+                    <span class="prompt">nipuna@localhost:~$</span>
+                    <span class="command">cat <span id="attempted-path">unknown_file</span></span>
+                </div>
+                <div class="output">
+                    <div class="ascii-error">
+                        <pre>
+   _____ _____  _____    ______                     
+  / __  \\  _  \\|  _  |   |  ____|                    
+  `' / /' |/' || |/' |   | |__   _ __ _ __ ___  _ __ 
+    / /  |  /| ||  /| |   |  __| | '__| '__/ _ \\| '__|
+  ./ /___\\ |_/ /\\ |_/ /   | |____| |  | | | (_) | |   
+  \\_____/ \\___/  \\___/    |______|_|  |_|  \\___/|_|   
+                        </pre>
+                    </div>
+                    
+                    <p class="error-code">404</p>
+                    <p class="error-message">cat: <span id="error-path"></span>: No such file or directory</p>
+                    
+                    <div class="suggestions">
+                        <h3>Available options:</h3>
+                        <ul>
+                            <li><code>cd <a href="index.html">~</a></code> - Return to home directory</li>
+                            <li><code>cd <a href="blog.html">~/blog</a></code> - View blog posts</li>
+                            <li><code>cd <a href="projects.html">~/projects</a></code> - Browse projects</li>
+                            <li><code>cd <a href="cv.html">~/cv</a></code> - View CV/Resume</li>
+                            <li><code>cd <a href="contact.html">~/contact</a></code> - Get in touch</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="suggestions">
+                        <h3>Common commands:</h3>
+                        <ul>
+                            <li><code>ls -la</code> - List all available pages</li>
+                            <li><code>pwd</code> - Print working directory: <span style="color: var(--terminal-cyan);">/home/nipuna</span></li>
+                            <li><code>history</code> - <a href="javascript:history.back()">Go back to previous page</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="command-line">
+                    <span class="prompt">nipuna@localhost:~$</span>
+                    <span class="command">_</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Get the attempted path from URL
+        document.addEventListener('DOMContentLoaded', function() {
+            const path = window.location.pathname;
+            const attemptedPath = path.split('/').pop() || 'unknown_file';
+            document.getElementById('attempted-path').textContent = attemptedPath;
+            document.getElementById('error-path').textContent = attemptedPath;
+        });
+    </script>
+</body>
+</html>
+

@@ -3,421 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nipuna Perera - CV</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f8f9fa;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-        
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px 30px;
-            text-align: center;
-        }
-        
-        .header h1 {
-            font-size: 2.5rem;
-            font-weight: 300;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-        }
-        
-        .header .title {
-            font-size: 1.3rem;
-            font-weight: 400;
-            opacity: 0.95;
-            margin-bottom: 20px;
-        }
-        
-        .header .location {
-            font-size: 1rem;
-            opacity: 0.8;
-        }
-        
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 25px;
-            flex-wrap: wrap;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.95rem;
-        }
-        
-        .main-content {
-            padding: 0;
-            display: grid;
-            grid-template-columns: 1fr 350px;
-            gap: 0;
-        }
-        
-        .left-column {
-            padding: 40px;
-        }
-        
-        .right-column {
-            background: #f8f9fa;
-            padding: 40px 30px;
-            border-left: 1px solid #e9ecef;
-        }
-        
-        .section {
-            margin-bottom: 35px;
-        }
-        
-        .section h2 {
-            color: #667eea;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #667eea;
-            font-weight: 500;
-        }
-        
-        .sidebar h2 {
-            color: #495057;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-        
-        .summary {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            color: #495057;
-        }
-        
-        .job {
-            margin-bottom: 30px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid #e9ecef;
-        }
-        
-        .job:last-child {
-            border-bottom: none;
-        }
-        
-        .job-header {
-            margin-bottom: 12px;
-        }
-        
-        .job-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #343a40;
-            margin-bottom: 5px;
-        }
-        
-        .company {
-            color: #667eea;
-            font-weight: 500;
-            font-size: 1.1rem;
-        }
-        
-        .duration-location {
-            color: #6c757d;
-            font-size: 0.95rem;
-            margin-top: 5px;
-        }
-        
-        .job-description ul {
-            margin-top: 12px;
-            padding-left: 20px;
-        }
-        
-        .job-description li {
-            margin-bottom: 8px;
-            line-height: 1.6;
-        }
-        
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        
-        .skill-tag {
-            background: #667eea;
-            color: white;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-        
-        .cert-item, .lang-item, .edu-item {
-            margin-bottom: 12px;
-            padding: 10px 0;
-            border-bottom: 1px solid #e9ecef;
-        }
-        
-        .cert-item:last-child, .lang-item:last-child, .edu-item:last-child {
-            border-bottom: none;
-        }
-        
-        .cert-name, .edu-degree {
-            font-weight: 600;
-            color: #343a40;
-            font-size: 0.95rem;
-        }
-        
-        .edu-institution {
-            color: #667eea;
-            font-weight: 500;
-            margin-top: 3px;
-        }
-        
-        .edu-years {
-            color: #6c757d;
-            font-size: 0.9rem;
-            margin-top: 2px;
-        }
-        
-        .lang-proficiency {
-            color: #6c757d;
-            font-size: 0.9rem;
-        }
-        
-        @media (max-width: 768px) {
-            .main-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .right-column {
-                border-left: none;
-                border-top: 1px solid #e9ecef;
-            }
-            
-            .contact-info {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .header h1 {
-                font-size: 2rem;
-            }
-        }
-    </style>
+    <title>nipuna@localhost:~$</title>
+    <meta name="description" content="Nipuna Perera - Senior Staff Database Reliability Engineer. Terminal-based personal website and blog.">
+    <meta name="theme-color" content="#16a34a">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/mobile-enhancements.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>NIPUNA PERERA</h1>
-            <div class="title">Database Reliability Engineer</div>
-            <div class="location">Dublin, County Dublin, Ireland</div>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <span>📧</span> nipunap@gmail.com
-                </div>
-                <div class="contact-item">
-                    <span>💼</span> linkedin.com/in/nipunap
-                </div>
+    <div class="terminal">
+        <div class="terminal-header">
+            <div class="terminal-buttons">
+                <span class="btn-close"></span>
+                <span class="btn-minimize"></span>
+                <span class="btn-maximize"></span>
             </div>
+            <div class="terminal-title">nipuna@localhost:~$</div>
         </div>
+        
+        <div class="terminal-body">
+            <div class="terminal-content">
+                <div class="command-line">
+                    <span class="prompt">nipuna@localhost:~$</span>
+                    <span class="command">whoami</span>
+                </div>
+                <div class="output">
+                    <div class="ascii-art">
+                        <pre>
+▖ ▖▘          ▄▖          
+▛▖▌▌▛▌▌▌▛▌▀▌  ▙▌█▌▛▘█▌▛▘▀▌
+▌▝▌▌▙▌▙▌▌▌█▌  ▌ ▙▖▌ ▙▖▌ █▌
+    ▌                     
+                        </pre>
+                    </div>
+                    <p class="welcome-text">Welcome to my terminal! I'm Nipuna Perera, a Senior Staff Database Reliability Engineer.</p>
+                </div>
 
-        <div class="main-content">
-            <div class="left-column">
-                <div class="section">
-                    <h2>Professional Summary</h2>
-                    <div class="summary">
-                        Seasoned Database Reliability Engineer with 16+ years of experience specializing in managing complex database environments to ensure robustness and high availability. Currently at Udemy with over 3 years as Senior Staff Datastore Reliability Engineer, successfully scaling Redis clusters beyond 1TB and conducting extensive R&D. Deep expertise in Linux internals, bash scripting, and extensive experience with MySQL since version 4.2. Previously led EMEA DBA team at Zendesk, maintaining 99.95% availability for AWS Aurora/RDS MySQL production environments supporting 100,000+ customers.
+                <div class="command-line">
+                    <span class="prompt">nipuna@localhost:~$</span>
+                    <span class="command">cat about.txt</span>
+                </div>
+                <div class="output">
+                    <p>I specialize in managing complex database environments, ensuring high availability and performance at scale. With 16+ years of experience in database technologies, cloud infrastructure, and automation.</p>
+                    <p>Currently working at Udemy as Senior Staff Datastore Reliability Engineer, where I've successfully scaled Redis clusters beyond 1TB and led extensive R&D projects.</p>
+                </div>
+
+                <div class="command-line">
+                    <span class="prompt">nipuna@localhost:~$</span>
+                    <span class="command">ls -la</span>
+                </div>
+                <div class="output">
+                    <div class="file-listing">
+                        <div class="file-item">
+                            <span class="permissions">-rw-r--r--</span>
+                            <span class="owner">nipuna</span>
+                            <span class="group">staff</span>
+                            <span class="size">8192</span>
+                            <span class="date">Dec 15 10:30</span>
+                            <a href="cv.html" class="filename">cv.html</a>
+                        </div>
+                        <div class="file-item">
+                            <span class="permissions">drwxr-xr-x</span>
+                            <span class="owner">nipuna</span>
+                            <span class="group">staff</span>
+                            <span class="size">4096</span>
+                            <span class="date">Dec 15 10:25</span>
+                            <a href="blog.html" class="filename">blog/</a>
+                        </div>
+                        <div class="file-item">
+                            <span class="permissions">drwxr-xr-x</span>
+                            <span class="owner">nipuna</span>
+                            <span class="group">staff</span>
+                            <span class="size">4096</span>
+                            <span class="date">Dec 15 10:20</span>
+                            <a href="projects.html" class="filename">projects/</a>
+                        </div>
+                        <div class="file-item">
+                            <span class="permissions">drwxr-xr-x</span>
+                            <span class="owner">nipuna</span>
+                            <span class="group">staff</span>
+                            <span class="size">4096</span>
+                            <span class="date">Dec 15 10:15</span>
+                            <a href="contact.html" class="filename">contact/</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="section">
-                    <h2>Professional Experience</h2>
-                    
-                    <div class="job">
-                        <div class="job-header">
-                            <div class="job-title">Senior Staff Database Reliability Engineer</div>
-                            <div class="company">Udemy</div>
-                            <div class="duration-location">January 2022 - Present (3+ years) • Dublin, Ireland</div>
-                        </div>
-                        <div class="job-description">
-                            <ul>
-                                <li>Managed and optimized complex database environments on AWS using MySQL, ProxySQL, Redis, Kafka, RabbitMQ, AWS DynamoDB, and Aurora MySQL/PostgreSQL</li>
-                                <li>Developed Python scripts for automation and benchmark testing, contributing to efficient operations</li>
-                                <li>Successfully scaled large-scale Redis clusters exceeding 1TB in capacity</li>
-                                <li>Developed Debezium and Mirrormaker Terraform modules for AWS MSK and deployed in production</li>
-                                <li>Consulted on Kafka Connect to MSK migration projects</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="job">
-                        <div class="job-header">
-                            <div class="job-title">Team Lead → Staff Engineer → Senior Database Administrator</div>
-                            <div class="company">Zendesk</div>
-                            <div class="duration-location">August 2016 - January 2022 (5.5 years) • Dublin, Ireland</div>
-                        </div>
-                        <div class="job-description">
-                            <ul>
-                                <li>Led EMEA DBA team managing 200+ clusters exceeding 3TB each, supporting 100,000+ customers</li>
-                                <li>Implemented robust monitoring practices with AWS CloudWatch and CloudFormation, ensuring 99.95% availability</li>
-                                <li>Developed database analytics platforms using Node.js and Python, enhancing data-driven decision-making</li>
-                                <li>Automated processes using bash and Python to streamline operations</li>
-                                <li>Developed and tested AWS Lambda functions for efficient cloud computing</li>
-                                <li>Implemented automation for schema changes to improve database efficiency</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="job">
-                        <div class="job-header">
-                            <div class="job-title">Senior Technical Lead → Technical Lead → Senior Database Administrator</div>
-                            <div class="company">CAKE Engineering</div>
-                            <div class="duration-location">August 2013 - August 2016 (3 years) • Colombo, Sri Lanka</div>
-                        </div>
-                        <div class="job-description">
-                            <ul>
-                                <li>Managed and optimized complex database environments including MySQL, CouchDB, Cassandra, and Titan</li>
-                                <li>Spearheaded data science initiatives, introducing machine learning algorithms and developing innovative data products</li>
-                                <li>Achieved 99.999% uptime record, ensuring high levels of system availability</li>
-                                <li>Implemented Puppet automation for configuration management</li>
-                                <li>Developed backup solutions using AWS S3 and Percona Toolkit</li>
-                                <li>Pioneered Data Science initiative managing 150+ SQL/NoSQL database nodes</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="job">
-                        <div class="job-header">
-                            <div class="job-title">Senior Systems Engineer</div>
-                            <div class="company">Colombo Stock Exchange</div>
-                            <div class="duration-location">August 2012 - August 2013 (1 year) • Colombo, Sri Lanka</div>
-                        </div>
-                        <div class="job-description">
-                            <ul>
-                                <li>Designed software for datawall screen using Oracle 11g on Linux, JavaScript, HTML5, and PHP</li>
-                                <li>Developed the first mobile application for the stock exchange using Android and Java 1.6</li>
-                                <li>Oversaw day-to-day market open and close activities</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="job">
-                        <div class="job-header">
-                            <div class="job-title">Technical Team Lead<br><small style="font-weight: normal; color: #6c757d;">Senior Implementation Engineer (2011-2012)<br>Implementation Engineer (2007-2011)</small></div>
-                            <div class="company">hSenid Mobile Solutions</div>
-                            <div class="duration-location">July 2007 - August 2012 (5+ years) • Sri Lanka, Brunei, Singapore</div>
-                        </div>
-                        <div class="job-description">
-                            <ul>
-                                <li>Led cross-functional teams in implementation and deployment of telco top-up systems</li>
-                                <li>Designed RFP proposals and technology solutions for telecommunications industry</li>
-                                <li>Provided 24x7 support for deployed software solutions</li>
-                                <li>Managed clients and third-party hardware vendors</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="job">
-                        <div class="job-header">
-                            <div class="job-title">Temporary Instructor</div>
-                            <div class="company">Center of Information Technology, University of Peradeniya</div>
-                            <div class="duration-location">July 2006 - July 2007 (1 year) • Peradeniya, Sri Lanka</div>
-                        </div>
-                        <div class="job-description">
-                            <ul>
-                                <li>Conducted lectures for 4th year students of Faculty of Arts</li>
-                                <li>Managed CIT network infrastructure</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="command-line">
+                    <span class="prompt">nipuna@localhost:~$</span>
+                    <span class="command">cat skills.txt</span>
                 </div>
-            </div>
-
-            <div class="right-column">
-                <div class="section">
-                    <h2>Top Skills</h2>
+                <div class="output">
                     <div class="skills-grid">
-                        <span class="skill-tag">Server Architecture</span>
-                        <span class="skill-tag">Technical Leadership</span>
-                        <span class="skill-tag">Python</span>
                         <span class="skill-tag">MySQL</span>
                         <span class="skill-tag">Redis</span>
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">Kubernetes</span>
-                        <span class="skill-tag">Linux</span>
-                        <span class="skill-tag">Kafka</span>
                         <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">Bash Scripting</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Bash</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Kafka</span>
                         <span class="skill-tag">DynamoDB</span>
                         <span class="skill-tag">ProxySQL</span>
+                        <span class="skill-tag">Terraform</span>
+                        <span class="skill-tag">Linux</span>
                     </div>
                 </div>
 
-                <div class="section">
-                    <h2>Certifications</h2>
-                    <div class="cert-item">
-                        <div class="cert-name">AWS Certified Database – Specialty</div>
-                    </div>
-                    <div class="cert-item">
-                        <div class="cert-name">Oracle Certified Professional, MySQL 5.6 Database Administrator</div>
-                    </div>
-                    <div class="cert-item">
-                        <div class="cert-name">Site Reliability Engineering: Measuring and Managing Reliability</div>
-                    </div>
-                    <div class="cert-item">
-                        <div class="cert-name">The Data Scientist's Toolbox</div>
-                    </div>
-                    <div class="cert-item">
-                        <div class="cert-name">Python Object-Oriented Programming</div>
+                <div class="command-line">
+                    <span class="prompt">nipuna@localhost:~$</span>
+                    <span class="command">cat recent_posts.txt</span>
+                </div>
+                <div class="output">
+                    <div class="recent-posts">
+                        <div class="post-item">
+                            <span class="post-date">2025-10-30</span>
+                            <a href="blog-post.html?id=kubernetes-foundations-tutorial" class="post-title">Kubernetes Foundations — Complete Beginner's Tutorial</a>
+                        </div>
+                        <div class="post-item">
+                            <span class="post-date">→</span>
+                            <a href="blog.html" class="post-title">View all posts</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="section">
-                    <h2>Languages</h2>
-                    <div class="lang-item">
-                        <strong>Sinhalese</strong>
-                        <div class="lang-proficiency">Native or Bilingual</div>
-                    </div>
-                    <div class="lang-item">
-                        <strong>English</strong>
-                        <div class="lang-proficiency">Professional Working</div>
+                <div class="command-line">
+                    <span class="prompt">nipuna@localhost:~$</span>
+                    <span class="command">contact</span>
+                </div>
+                <div class="output">
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> nipunap@gmail.com</p>
+                        <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/nipunap" target="_blank">linkedin.com/in/nipunap</a></p>
+                        <p><i class="fab fa-github"></i> <a href="https://github.com/nipunap" target="_blank">github.com/nipunap</a></p>
+                        <p><i class="fas fa-map-marker-alt"></i> Dublin, Ireland</p>
                     </div>
                 </div>
 
-                <div class="section">
-                    <h2>Education</h2>
-                    <div class="edu-item">
-                        <div class="edu-degree">Physical Science</div>
-                        <div class="edu-institution">University of Peradeniya</div>
-                        <div class="edu-years">Physics, Mathematics, Statistics (2004-2007)</div>
-                    </div>
-                    <div class="edu-item">
-                        <div class="edu-degree">Advanced Level</div>
-                        <div class="edu-institution">Dharmaraja College, Kandy</div>
-                        <div class="edu-years">Mathematics/Physics (1989-2002)</div>
-                    </div>
+                <div class="command-line">
+                    <span class="prompt">nipuna@localhost:~$</span>
+                    <span class="command">_</span>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="script.js"></script>
+    <script src="js/error-handler.js"></script>
+    <script src="js/lazy-load.js"></script>
+    <script src="js/analytics.js"></script>
+    <script src="js/seo.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        // Initialize SEO for home page
+        if (window.SEO) {
+            document.addEventListener('DOMContentLoaded', function() {
+                window.SEO.initHomePageSEO();
+            });
+        }
+    </script>
 </body>
 </html>

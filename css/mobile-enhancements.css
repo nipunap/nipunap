@@ -1,0 +1,266 @@
+/**
+ * Mobile Enhancements and Touch Optimizations
+ */
+
+/* Touch-friendly minimum sizes */
+@media (max-width: 768px) {
+  /* Minimum tap target size (44x44px recommended) */
+  a, button, .btn, .skill-tag, .tag-item {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Improve touch feedback */
+  a:active, button:active {
+    opacity: 0.7;
+    transform: scale(0.98);
+  }
+
+  /* Larger font sizes for readability */
+  body {
+    font-size: 16px; /* Prevent iOS zoom on focus */
+  }
+
+  input, textarea, select {
+    font-size: 16px; /* Prevent iOS zoom */
+  }
+
+  /* Better spacing for touch */
+  .file-item {
+    padding: 12px;
+    margin-bottom: 8px;
+  }
+
+  .skill-tag {
+    padding: 8px 12px;
+    margin: 4px;
+  }
+
+  /* Larger clickable areas */
+  .post-title a {
+    padding: 8px 0;
+    display: block;
+  }
+
+  /* Terminal buttons larger for touch */
+  .terminal-buttons span {
+    width: 16px;
+    height: 16px;
+    margin: 0 6px;
+  }
+
+  /* Better terminal header for mobile */
+  .terminal-header {
+    padding: 12px 16px;
+  }
+
+  .terminal-title {
+    font-size: 13px;
+  }
+
+  /* Improve mobile navigation */
+  .contact-info a,
+  .filename {
+    padding: 8px 4px;
+  }
+
+  /* Better code block spacing on mobile */
+  .blog-content pre code {
+    line-height: 1.6;
+  }
+
+  /* Larger close/dismiss buttons */
+  .notification-close,
+  .error-dismiss-btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+/* Portrait orientation specific */
+@media (max-width: 768px) and (orientation: portrait) {
+  .terminal {
+    margin: 5px;
+    border-radius: 4px;
+  }
+
+  .terminal-body {
+    padding: 12px;
+  }
+
+  /* Stack elements vertically */
+  .file-item {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-meta .meta-item {
+    flex-direction: column;
+  }
+}
+
+/* Landscape orientation specific */
+@media (max-width: 768px) and (orientation: landscape) {
+  .terminal {
+    margin: 5px auto;
+    max-width: 100%;
+  }
+
+  /* Use horizontal space better */
+  .skills-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+}
+
+/* Small phones */
+@media (max-width: 375px) {
+  .terminal {
+    margin: 0;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+
+  .terminal-body {
+    padding: 10px;
+  }
+
+  /* Even larger tap targets on small screens */
+  a, button {
+    min-height: 48px;
+    min-width: 48px;
+  }
+
+  /* Compact layout */
+  .command-line {
+    font-size: 14px;
+  }
+
+  .prompt {
+    font-size: 12px;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Crisper text rendering */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Sharper borders */
+  .terminal,
+  .file-item,
+  .skill-tag {
+    border-width: 0.5px;
+  }
+}
+
+/* Prevent horizontal scroll on mobile */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .terminal-content {
+    overflow-x: hidden;
+  }
+
+  pre {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+/* iOS specific fixes */
+@supports (-webkit-touch-callout: none) {
+  /* Prevent iOS zoom on inputs */
+  input[type="text"],
+  input[type="search"],
+  textarea {
+    font-size: 16px !important;
+  }
+
+  /* Fix iOS safe areas */
+  .terminal {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Smooth scrolling */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Android specific */
+@media (max-width: 768px) {
+  /* Better scrolling on Android */
+  .terminal-body {
+    overscroll-behavior: contain;
+  }
+}
+
+/* Touch device specific styles */
+@media (hover: none) and (pointer: coarse) {
+  /* Remove hover states on touch devices */
+  .file-item:hover,
+  .skill-tag:hover,
+  .post-item:hover {
+    background: inherit;
+  }
+
+  /* Add active states instead */
+  .file-item:active,
+  .skill-tag:active {
+    background: rgba(22, 163, 74, 0.1);
+  }
+
+  /* Better touch feedback */
+  a:active,
+  button:active {
+    opacity: 0.7;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Dark mode preparation */
+@media (prefers-color-scheme: dark) {
+  /* Note: Currently using light theme
+     Uncomment when dark mode is ready */
+  /*
+  :root {
+    --terminal-bg: #0f172a;
+    --terminal-green: #e2e8f0;
+    // ... other dark mode colors
+  }
+  */
+}
+
+/* Print optimizations */
+@media print {
+  /* Hide mobile-specific elements */
+  .terminal-header,
+  .terminal-buttons,
+  .notification-close {
+    display: none !important;
+  }
+}
+

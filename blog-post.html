@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Post - Nipuna Perera</title>
+    <meta name="description" content="Technical blog post by Nipuna Perera" />
+    <meta name="theme-color" content="#16a34a">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/blog-post.css" />
+    <link rel="stylesheet" href="css/print.css" media="print" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Skip link for accessibility -->
+    <style>
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: var(--terminal-cyan);
+        color: var(--terminal-bg);
+        padding: 8px 16px;
+        text-decoration: none;
+        z-index: 100;
+      }
+
+      .skip-link:focus {
+        top: 0;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="terminal">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="btn-close" aria-label="Close" role="button"></span>
+          <span class="btn-minimize" aria-label="Minimize" role="button"></span>
+          <span class="btn-maximize" aria-label="Maximize" role="button"></span>
+        </div>
+        <div class="terminal-title">nipuna@localhost:~/blog$</div>
+      </div>
+
+      <div class="terminal-body">
+        <div class="terminal-content">
+          <div class="command-line">
+            <span class="prompt">nipuna@localhost:~/blog$</span>
+            <span class="command">cat <span id="current-post-id">loading...</span>.md</span>
+          </div>
+          <div class="output">
+            <div id="blog-content" class="loading" role="main" id="main-content">
+              <span class="sr-only">Loading blog post...</span>
+              <div aria-live="polite" aria-busy="true">Loading blog post...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Load marked.js and DOMPurify from CDN -->
+    <!-- TODO: Add SRI hashes once we generate correct ones -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/marked@12.0.0/marked.min.js"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/dompurify@3.0.9/dist/purify.min.js"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="js/error-handler.js"></script>
+    <script src="js/lazy-load.js"></script>
+    <script src="js/analytics.js"></script>
+    <script src="js/seo.js"></script>
+    <script src="js/app.js"></script>
+
+    <script>
+      // Utility: Get base path for GitHub Pages
+      function getBasePath() {
+        const path = window.location.pathname;
+        const base = path.substring(0, path.lastIndexOf('/'));
+        return base === '/' ? '' : base;
+      }
+
+      // Utility: Retry with exponential backoff
+      async function retry(fn, maxRetries = 3, delay = 1000) {
+        for (let i = 0; i < maxRetries; i++) {
+          try {
+            return await fn();
+          } catch (error) {
+            if (i === maxRetries - 1) throw error;
+            await new Promise(resolve => setTimeout(resolve, delay * Math.pow(2, i)));
+          }
+        }
+      }
+
+      // Utility: Fetch with timeout
+      async function fetchWithTimeout(url, timeout = 10000) {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), timeout);
+
+        try {
+          const response = await fetch(url, { signal: controller.signal });
+          clearTimeout(timeoutId);
+          return response;
+        } catch (error) {
+          clearTimeout(timeoutId);
+          throw error;
+        }
+      }
+
+      // Utility: Escape HTML
+      function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+      }
+
+      // Configure marked
+      if (typeof marked !== 'undefined') {
+        marked.setOptions({
+          gfm: true,
+          breaks: false,
+          headerIds: true,
+        });
+      }
+
+      const basePath = getBasePath();
+
+      /**
+       * Load and render blog post
+       */
+      const loadBlogPost = window.ErrorHandler ? 
+        window.ErrorHandler.withErrorHandling(
+          async function loadBlogPostInner() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const postId = urlParams.get('id');
+
+            if (!postId) {
+              throw new Error('No post ID provided');
+            }
+
+            document.getElementById('current-post-id').textContent = postId;
+
+            // Fetch post metadata with retry
+            const indexUrl = `${basePath}/blogs/index.json`;
+            const indexResp = await window.ErrorHandler.fetchWithRetry(indexUrl);
+            
+            if (!indexResp.ok) {
+              throw new Error(`Failed to fetch blog index: ${indexResp.status}`);
+            }
+
+            const index = await indexResp.json();
+            const post = index.posts.find(p => p.id === postId);
+
+            if (!post) {
+              throw new Error('Post not found');
+            }
+
+            // Update SEO
+            document.title = `${post.title} - Nipuna Perera`;
+            updateMetaDescription(post.excerpt);
+
+            // Fetch markdown content with retry
+            const mdUrl = `${basePath}/blogs/${post.path}`;
+            const mdResp = await window.ErrorHandler.fetchWithRetry(mdUrl);
+            
+            if (!mdResp.ok) {
+              throw new Error(`Failed to fetch markdown: ${mdResp.status}`);
+            }
+
+            const markdown = await mdResp.text();
+
+            // Render post
+            renderBlogPost(post, markdown);
+            
+            // Initialize SEO for blog post
+            if (window.SEO) {
+              window.SEO.initBlogPostSEO(post);
+            }
+
+            // Track page view
+            if (window.Analytics) {
+              window.Analytics.trackEvent('Blog Post View', {
+                category: 'Content',
+                label: postId
+              });
+            }
+
+            return post;
+          },
+          document.getElementById('blog-content'),
+          {
+            retry: true,
+            dismissible: true
+          }
+        ) : 
+        async function loadBlogPostFallback() {
+          // Fallback if ErrorHandler not loaded
+          try {
+            const urlParams = new URLSearchParams(window.location.search);
+            const postId = urlParams.get('id');
+            if (!postId) {
+              showError('No post ID provided');
+              return;
+            }
+            // ... rest of original code
+          } catch (error) {
+            console.error('Error loading blog post:', error);
+            showError('Failed to load blog post. Please try again later.');
+          }
+        };
+
+      /**
+       * Update meta description
+       */
+      function updateMetaDescription(description) {
+        let meta = document.querySelector('meta[name="description"]');
+        if (!meta) {
+          meta = document.createElement('meta');
+          meta.name = 'description';
+          document.head.appendChild(meta);
+        }
+        meta.content = description;
+      }
+
+      /**
+       * Render blog post with sanitized content
+       */
+      function renderBlogPost(post, markdown) {
+        const container = document.getElementById('blog-content');
+        container.classList.remove('loading');
+        container.setAttribute('aria-busy', 'false');
+
+        // Check if libraries are loaded
+        if (typeof marked === 'undefined' || typeof DOMPurify === 'undefined') {
+          showError('Required libraries failed to load. Please refresh the page.');
+          return;
+        }
+
+        // Convert markdown to HTML and sanitize
+        const rawHtml = marked.parse(markdown);
+        const cleanHtml = DOMPurify.sanitize(rawHtml, {
+          ALLOWED_TAGS: [
+            'h1',
+            'h2',
+            'h3',
+            'h4',
+            'h5',
+            'h6',
+            'p',
+            'br',
+            'strong',
+            'em',
+            'code',
+            'pre',
+            'a',
+            'ul',
+            'ol',
+            'li',
+            'blockquote',
+            'hr',
+            'table',
+            'thead',
+            'tbody',
+            'tr',
+            'th',
+            'td',
+          ],
+          ALLOWED_ATTR: ['href', 'title', 'target', 'rel', 'class', 'id'],
+        });
+
+        // Build page structure
+        const backLink = basePath ? `${basePath}/blog.html` : 'blog.html';
+
+        container.innerHTML = `
+          <a href="${backLink}" class="back-link">
+            <i class="fas fa-arrow-left" aria-hidden="true"></i> 
+            <span>Back to blog</span>
+          </a>
+          
+          <div class="blog-meta" role="complementary" aria-label="Post metadata">
+            <div class="meta-item">
+              <span class="meta-label">Title:</span>
+              <span class="meta-value">${escapeHtml(post.title)}</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Author:</span>
+              <span class="meta-value">${escapeHtml(post.author)}</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Date:</span>
+              <span class="meta-value"><time datetime="${post.date}">${escapeHtml(post.date)}</time></span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Category:</span>
+              <span class="meta-value">${escapeHtml(post.category)}</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Read Time:</span>
+              <span class="meta-value">${escapeHtml(post.readTime)}</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Tags:</span>
+              <span class="meta-value">${post.tags.map(tag => escapeHtml(tag)).join(', ')}</span>
+            </div>
+          </div>
+          
+          <article class="blog-content">
+            ${cleanHtml}
+          </article>
+        `;
+
+        // Add external link indicators
+        addExternalLinkIndicators();
+      }
+
+      /**
+       * Show error message
+       */
+      function showError(message) {
+        const container = document.getElementById('blog-content');
+        container.classList.remove('loading');
+        container.setAttribute('aria-busy', 'false');
+        container.innerHTML = `<div class="error" role="alert">${escapeHtml(message)}</div>`;
+      }
+
+      /**
+       * Add indicators and attributes to external links
+       */
+      function addExternalLinkIndicators() {
+        const links = document.querySelectorAll('.blog-content a[href^="http"]');
+        links.forEach(link => {
+          if (!link.hostname.includes(window.location.hostname)) {
+            link.setAttribute('rel', 'noopener noreferrer');
+            link.setAttribute('target', '_blank');
+            link.setAttribute('aria-label', `${link.textContent} (opens in new tab)`);
+          }
+        });
+      }
+
+      // Load blog post when page loads
+      document.addEventListener('DOMContentLoaded', loadBlogPost);
+    </script>
+  </body>
+</html>

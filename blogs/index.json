@@ -1,0 +1,34 @@
+{
+  "posts": [
+    {
+      "id": "kubernetes-foundations-tutorial",
+      "title": "Kubernetes Foundations — Complete Beginner's Tutorial",
+      "excerpt": "Learn Kubernetes fundamentals through hands-on practice with persistent storage, perfect for SRE/DBRE roles.",
+      "date": "2025-10-30",
+      "category": "Tutorials",
+      "tags": [
+        "Kubernetes",
+        "SRE",
+        "DBRE",
+        "Storage",
+        "MariaDB"
+      ],
+      "readTime": "20 min read",
+      "author": "Nipuna Perera",
+      "path": "2025/kubernetes-foundations-tutorial.md"
+    }
+  ],
+  "categories": [
+    {
+      "name": "Tutorials",
+      "count": 1
+    }
+  ],
+  "tags": [
+    { "name": "Kubernetes", "count": 1 },
+    { "name": "SRE", "count": 1 },
+    { "name": "DBRE", "count": 1 },
+    { "name": "Storage", "count": 1 },
+    { "name": "MariaDB", "count": 1 }
+  ]
+}
