@@ -6,6 +6,16 @@
 
 ---
 
+## Video Tutorial
+
+Watch the complete video walkthrough of this tutorial:
+
+[![Kubernetes Foundations Tutorial](https://img.youtube.com/vi/P-MIuK1BU_s/maxresdefault.jpg)](https://www.youtube.com/watch?v=P-MIuK1BU_s)
+
+🎥 [Watch on YouTube: Kubernetes Foundations Tutorial](https://www.youtube.com/watch?v=P-MIuK1BU_s)
+
+---
+
 ## Table of Contents
 
 1. [Setup & Prerequisites](#setup--prerequisites)

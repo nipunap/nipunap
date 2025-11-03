@@ -45,8 +45,8 @@ I'm a **Senior Staff Datastore Reliability Engineer at Udemy** with 16+ years of
 
 ## 📝 Latest Blog Post
 
-📄 [**Kubernetes Foundations — Complete Beginner's Tutorial**](https://nipunap.github.io/nipunap/blog-post.html?id=kubernetes-foundations-tutorial)  
-*Learn Kubernetes fundamentals through hands-on practice with persistent storage, perfect for SRE/DBRE roles.*
+📄 [**Kubernetes Workloads & Scheduling — 7-Day Deep Dive**](https://nipunap.github.io/nipunap/blog-post.html?id=kubernetes-workloads-scheduling-tutorial)  
+*Master workload types and advanced scheduling for production SRE/DBRE scenarios.*
 
 [→ View all blog posts](https://nipunap.github.io/nipunap/blog.html)
 
