@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nipuna Perera - Blog</title>
+    <link>https://github.com/nipunap/nipunap</link>
+    <description>Senior Staff Database Reliability Engineer specializing in managing complex database environments, ensuring high availability and performance at scale.</description>
+    <language>en-us</language>
+    <managingEditor>nipunap@gmail.com (Nipuna Perera)</managingEditor>
+    <webMaster>nipunap@gmail.com (Nipuna Perera)</webMaster>
+    <lastBuildDate>Tue, 04 Nov 2025 19:33:53 +0000</lastBuildDate>
+    <atom:link href="https://github.com/nipunap/nipunap/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Kubernetes Sidecars &amp; Multi-Container Patterns — Complete Guide</title>
+      <link>https://github.com/nipunap/nipunap/blob/main/blogs/2025/kubernetes-sidecars-multi-container-patterns.md</link>
+      <description>Master sidecar containers, init containers, and multi-container pod patterns for production SRE/DBRE workloads.</description>
+      <author>nipunap@gmail.com (Nipuna Perera)</author>
+      <pubDate>Tue, 04 Nov 2025 19:33:53 +0000</pubDate>
+      <guid isPermaLink="true">https://github.com/nipunap/nipunap/blob/main/blogs/2025/kubernetes-sidecars-multi-container-patterns.md</guid>
+    </item>
+    <item>
+      <title>Kubernetes Workloads &amp; Scheduling — 7-Day Deep Dive</title>
+      <link>https://github.com/nipunap/nipunap/blob/main/blogs/2025/kubernetes-workloads-scheduling-tutorial.md</link>
+      <description>Master Kubernetes workload types and advanced scheduling techniques for production SRE/DBRE scenarios.</description>
+      <author>nipunap@gmail.com (Nipuna Perera)</author>
+      <pubDate>Mon, 03 Nov 2025 12:59:38 +0000</pubDate>
+      <guid isPermaLink="true">https://github.com/nipunap/nipunap/blob/main/blogs/2025/kubernetes-workloads-scheduling-tutorial.md</guid>
+    </item>
+    <item>
+      <title>Kubernetes Foundations — Complete Beginner's Tutorial</title>
+      <link>https://github.com/nipunap/nipunap/blob/main/blogs/2025/kubernetes-foundations-tutorial.md</link>
+      <description>Learn Kubernetes fundamentals through hands-on practice with persistent storage, perfect for SRE/DBRE roles.</description>
+      <author>nipunap@gmail.com (Nipuna Perera)</author>
+      <pubDate>Thu, 30 Oct 2025 12:45:48 +0000</pubDate>
+      <guid isPermaLink="true">https://github.com/nipunap/nipunap/blob/main/blogs/2025/kubernetes-foundations-tutorial.md</guid>
+    </item>
+  </channel>
+</rss>
