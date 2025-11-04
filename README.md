@@ -43,6 +43,8 @@ I'm a **Senior Staff Datastore Reliability Engineer at Udemy** with 16+ years of
 
 See local index of Markdown posts: [BLOG.md](./BLOG.md)
 
+📡 [Subscribe to RSS Feed](feed.xml)
+
 ## 📫 Get in Touch
 
 - 📧 Email: [nipunap@gmail.com](mailto:nipunap@gmail.com)
