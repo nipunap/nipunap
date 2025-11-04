@@ -2,11 +2,7 @@
 
 **Senior Staff Database Reliability Engineer** specializing in managing complex database environments, ensuring high availability and performance at scale.
 
-## 🌐 Visit My Website
-
-[![Website](https://img.shields.io/badge/🌐_Visit-nipunap.github.io-16a34a?style=for-the-badge)](https://nipunap.github.io/nipunap/)
-
-**Direct Link:** [`https://nipunap.github.io/nipunap/`](https://nipunap.github.io/nipunap/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-nipunap-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/nipunap/)
 
 ## 💼 About Me
 
@@ -43,17 +39,14 @@ I'm a **Senior Staff Datastore Reliability Engineer at Udemy** with 16+ years of
 - **[VS Code Kafka Client](https://github.com/nipunap/vscode-kafka-client)** - Kafka cluster management extension for VS Code
 - **[LibreRespire](https://librerespire.github.io/)** - Open-source ventilator technology initiative
 
-## 📝 Latest Blog Post
+## 📝 Blog Posts
 
-📄 [**Kubernetes Workloads & Scheduling — 7-Day Deep Dive**](https://nipunap.github.io/nipunap/blog-post.html?id=kubernetes-workloads-scheduling-tutorial)  
-*Master workload types and advanced scheduling for production SRE/DBRE scenarios.*
-
-[→ View all blog posts](https://nipunap.github.io/nipunap/blog.html)
+See local index of Markdown posts: [BLOG.md](./BLOG.md)
 
 ## 📫 Get in Touch
 
 - 📧 Email: [nipunap@gmail.com](mailto:nipunap@gmail.com)
-- 💼 LinkedIn: [linkedin.com/in/nipunap](https://linkedin.com/in/nipunap)
+- 💼 LinkedIn: [linkedin.com/in/nipunap](https://www.linkedin.com/in/nipunap/)
 - 🐙 GitHub: [github.com/nipunap](https://github.com/nipunap)
 - 📍 Location: Dublin, Ireland
 
@@ -72,13 +65,4 @@ I'm a **Senior Staff Datastore Reliability Engineer at Udemy** with 16+ years of
 
 ---
 
-<div align="center">
-  
-### 🌟 Terminal-Themed Portfolio Website
-
-**Built with:** Progressive Web App (PWA) • Offline Support • SEO Optimized • Fully Accessible
-
-[![Website Status](https://img.shields.io/website?url=https%3A%2F%2Fnipunap.github.io%2Fnipunap%2F&style=flat-square&label=website)](https://nipunap.github.io/nipunap/)
-[![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](./LICENSE)
-
-</div>
+ 
