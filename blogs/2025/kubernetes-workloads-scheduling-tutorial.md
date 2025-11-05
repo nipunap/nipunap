@@ -36,7 +36,8 @@
 
 ```bash
 # Start your cluster with multiple nodes (for DaemonSet testing)
-# Using kind for multi-node setup
+
+# Option 1: Using kind for multi-node setup
 cat <<EOF > kind-multi-node-config.yaml
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
@@ -54,13 +55,42 @@ kind create cluster --name workloads-lab --config kind-multi-node-config.yaml
 kubectl get nodes
 ```
 
-**Expected Output:**
+**Alternative: Using minikube for multi-node setup**
+
+```bash
+# Option A: Start fresh cluster with multiple nodes
+# If you have an existing cluster, delete it first:
+minikube delete
+
+# Start minikube with multiple nodes (works only for new clusters)
+# This creates 1 control-plane + 2 worker nodes (3 total)
+minikube start --nodes 3
+
+# Option B: Add nodes to existing cluster
+# If you already have a running cluster, add additional nodes:
+# This adds 2 worker nodes to existing control-plane (3 total nodes)
+minikube node add
+minikube node add
+
+# Verify nodes
+kubectl get nodes
+```
+
+**Expected Output (kind):**
 ```
 NAME                          STATUS   ROLES           AGE   VERSION
 workloads-lab-control-plane   Ready    control-plane   1m    v1.28.0
 workloads-lab-worker          Ready    <none>          1m    v1.28.0
 workloads-lab-worker2         Ready    <none>          1m    v1.28.0
 workloads-lab-worker3         Ready    <none>          1m    v1.28.0
+```
+
+**Expected Output (minikube):**
+```
+NAME           STATUS   ROLES           AGE     VERSION
+minikube       Ready    control-plane   2m47s   v1.34.0
+minikube-m02   Ready    <none>          2m26s   v1.34.0
+minikube-m03   Ready    <none>          2m9s    v1.34.0
 ```
 
 ---
