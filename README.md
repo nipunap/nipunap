@@ -7,6 +7,8 @@ My background includes over 16 years of working with Linux, giving me a deep und
 Previously, I led the EMEA DBA team at Zendesk, where we maintained a 99.95% availability for AWS Aurora/RDS MySQL production environments, supporting a vast customer base. Our efforts in developing analytics platforms and a Go-based monitoring tool significantly enhanced data-driven decision-making and database performance.
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-nipunap-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/nipunap/)
+[![Credly](https://img.shields.io/badge/Credly-nipunap-FF6B00?style=for-the-badge&logo=credly&logoColor=white)](https://www.credly.com/users/nipunap/)
+
 
 ## 💼 About Me
 
@@ -25,6 +27,10 @@ I'm a **Senior Staff Datastore Reliability Engineer at Udemy** with 16+ years of
 [![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-336791?style=flat-square&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![DynamoDB](https://img.shields.io/badge/-DynamoDB-4053D6?style=flat-square&logo=amazon-dynamodb&logoColor=white)](https://aws.amazon.com/dynamodb/)
 
+**Data Infrastructure:**  
+[![Kafka](https://img.shields.io/badge/-Kafka-231F20?style=flat-square&logo=apache-kafka&logoColor=white)](https://kafka.apache.org/)
+[![ProxySQL](https://img.shields.io/badge/-ProxySQL-E2231A?style=flat-square&logo=mysql&logoColor=white)](https://proxysql.com/)
+
 **Cloud & Infrastructure:**  
 [![AWS](https://img.shields.io/badge/-AWS-232F3E?style=flat-square&logo=amazon-aws&logoColor=white)](https://aws.amazon.com/)
 [![Kubernetes](https://img.shields.io/badge/-Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white)](https://kubernetes.io/)
@@ -35,8 +41,6 @@ I'm a **Senior Staff Datastore Reliability Engineer at Udemy** with 16+ years of
 **Tools & Languages:**  
 [![Python](https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
 [![Bash](https://img.shields.io/badge/-Bash-4EAA25?style=flat-square&logo=gnu-bash&logoColor=white)](https://www.gnu.org/software/bash/)
-[![Kafka](https://img.shields.io/badge/-Kafka-231F20?style=flat-square&logo=apache-kafka&logoColor=white)](https://kafka.apache.org/)
-[![ProxySQL](https://img.shields.io/badge/-ProxySQL-E2231A?style=flat-square&logo=mysql&logoColor=white)](https://proxysql.com/)
 
 ## 🚀 Open Source Projects
 
