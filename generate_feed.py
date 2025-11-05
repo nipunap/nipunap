@@ -6,7 +6,7 @@ Generate RSS feed from blog posts in the repository.
 import os
 import re
 import subprocess
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from xml.sax.saxutils import escape
 
@@ -119,7 +119,14 @@ def generate_rss_feed():
     if blog_posts and blog_posts[0]["date"]:
         last_build_date = format_rfc822_date(blog_posts[0]["date"])
     else:
-        last_build_date = format_rfc822_date(datetime.now().strftime("%Y-%m-%d %H:%M:%S %z"))
+        # Use timezone-aware datetime to ensure proper formatting
+        now = datetime.now(timezone.utc)
+        last_build_date = now.strftime("%a, %d %b %Y %H:%M:%S %z")
+    
+    # Fallback: if last_build_date is None, use current time
+    if not last_build_date:
+        now = datetime.now(timezone.utc)
+        last_build_date = now.strftime("%a, %d %b %Y %H:%M:%S %z")
     
     # Generate RSS XML
     rss_items = []
