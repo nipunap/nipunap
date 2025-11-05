@@ -10,7 +10,11 @@
 
 Watch the complete video walkthrough of this tutorial:
 
-[![Kubernetes Foundations Tutorial](https://img.youtube.com/vi/P-MIuK1BU_s/maxresdefault.jpg)](https://www.youtube.com/watch?v=P-MIuK1BU_s)
+<div align="center">
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/P-MIuK1BU_s" title="Kubernetes Foundations Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="max-width: 100%; height: auto; aspect-ratio: 16/9;"></iframe>
+
+</div>
 
 🎥 [Watch on YouTube: Kubernetes Foundations Tutorial](https://www.youtube.com/watch?v=P-MIuK1BU_s)
 
