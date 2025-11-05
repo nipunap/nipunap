@@ -380,9 +380,9 @@ NAME                 DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE S
 node-info            3         3         3       3            3           <none>          30s
 
 NAME              NODE
-node-info-abc12   workloads-lab-worker
-node-info-def34   workloads-lab-worker2
-node-info-ghi56   workloads-lab-worker3
+node-info-abc12   <your-first-worker-node>
+node-info-def34   <your-second-worker-node>
+node-info-ghi56   <your-third-worker-node>
 ```
 
 #### Step 2: Real-World Example — Log Collector
@@ -533,26 +533,32 @@ spec:
 ```
 
 ```bash
+# First, get your node names (they differ between kind and minikube)
+kubectl get nodes
+
 # Apply the DaemonSet
 kubectl apply -f monitoring-daemonset.yaml
 
 # Check pods - should be 0 initially
 kubectl get pods -l app=monitoring-agent
 
-# Label a node to enable monitoring
-kubectl label node workloads-lab-worker monitoring=enabled
+# Label a node to enable monitoring (replace with your actual node name)
+# For kind clusters: workloads-lab-worker, workloads-lab-worker2, etc.
+# For minikube: minikube-m02, minikube-m03, etc.
+# Example: kubectl label node <your-first-worker-node> monitoring=enabled
+kubectl label node $(kubectl get nodes -o jsonpath='{.items[1].metadata.name}') monitoring=enabled
 
 # Watch pod get created
 kubectl get pods -l app=monitoring-agent -o wide
 
-# Label another node
-kubectl label node workloads-lab-worker2 monitoring=enabled
+# Label another node (replace with your actual node name)
+kubectl label node $(kubectl get nodes -o jsonpath='{.items[2].metadata.name}') monitoring=enabled
 
 # Now you have 2 pods
 kubectl get pods -l app=monitoring-agent -o wide
 
-# Remove label
-kubectl label node workloads-lab-worker monitoring-
+# Remove label (replace with your actual node name)
+kubectl label node $(kubectl get nodes -o jsonpath='{.items[1].metadata.name}') monitoring-
 kubectl get pods -l app=monitoring-agent -o wide
 ```
 
@@ -1091,17 +1097,29 @@ resources:
 #### Step 1: Label Nodes
 
 ```bash
-# Check current nodes
+# Check current nodes and their names
 kubectl get nodes --show-labels
 
-# Label nodes by tier
-kubectl label node workloads-lab-worker tier=frontend
-kubectl label node workloads-lab-worker2 tier=backend
-kubectl label node workloads-lab-worker3 tier=database
+# Note: Node names differ between kind and minikube:
+# - kind: workloads-lab-worker, workloads-lab-worker2, workloads-lab-worker3
+# - minikube: minikube, minikube-m02, minikube-m03
+# Replace <node-name> with your actual node names from 'kubectl get nodes'
+
+# Get worker node names (skip control-plane node which is typically index 0)
+# Store them in variables for reuse
+WORKER_NODES=($(kubectl get nodes -o jsonpath='{.items[*].metadata.name}'))
+FIRST_WORKER=${WORKER_NODES[1]}
+SECOND_WORKER=${WORKER_NODES[2]}
+THIRD_WORKER=${WORKER_NODES[3]:-$SECOND_WORKER}  # Use second worker if only 2 exist
+
+# Label nodes by tier (replace with your actual node names)
+kubectl label node $FIRST_WORKER tier=frontend
+kubectl label node $SECOND_WORKER tier=backend
+kubectl label node $THIRD_WORKER tier=database
 
 # Label nodes by disk type
-kubectl label node workloads-lab-worker2 disk=ssd
-kubectl label node workloads-lab-worker3 disk=ssd
+kubectl label node $SECOND_WORKER disk=ssd
+kubectl label node $THIRD_WORKER disk=ssd
 
 # Check labels
 kubectl get nodes -L tier,disk
@@ -1144,7 +1162,7 @@ kubectl apply -f frontend-nodeSelector.yaml
 # Check where pods landed
 kubectl get pods -l app=frontend -o wide
 
-# They should all be on workloads-lab-worker
+# They should all be on the node with tier=frontend label
 ```
 
 #### Step 3: Node Affinity (Required)
@@ -1198,7 +1216,7 @@ kubectl apply -f database-affinity.yaml
 # Check placement
 kubectl get pods -l app=database -o wide
 
-# Pods should only be on workloads-lab-worker3 (tier=database AND disk=ssd)
+# Pods should only be on the node with tier=database AND disk=ssd labels
 ```
 
 #### Step 4: Node Affinity (Preferred)
@@ -1401,19 +1419,29 @@ kubectl get pods -l app=web-spread -o wide
 #### Step 1: Taint a Node
 
 ```bash
+# Get your node names first
+kubectl get nodes
+
+# Taint worker nodes (replace with your actual node names)
+# Get worker node names (skip control-plane node)
+WORKER_NODES=($(kubectl get nodes -o jsonpath='{.items[*].metadata.name}'))
+FIRST_WORKER=${WORKER_NODES[1]}
+SECOND_WORKER=${WORKER_NODES[2]}
+THIRD_WORKER=${WORKER_NODES[3]:-$SECOND_WORKER}  # Use second worker if only 2 exist
+
 # Taint worker node for production only
-kubectl taint nodes workloads-lab-worker environment=production:NoSchedule
+kubectl taint nodes $FIRST_WORKER environment=production:NoSchedule
 
 # Taint worker2 for databases only
-kubectl taint nodes workloads-lab-worker2 workload=database:NoSchedule
+kubectl taint nodes $SECOND_WORKER workload=database:NoSchedule
 
 # Taint worker3 with NoExecute (will evict pods)
-kubectl taint nodes workloads-lab-worker3 maintenance=true:NoExecute
+kubectl taint nodes $THIRD_WORKER maintenance=true:NoExecute
 
 # Check taints
-kubectl describe node workloads-lab-worker | grep Taints
-kubectl describe node workloads-lab-worker2 | grep Taints
-kubectl describe node workloads-lab-worker3 | grep Taints
+kubectl describe node $FIRST_WORKER | grep Taints
+kubectl describe node $SECOND_WORKER | grep Taints
+kubectl describe node $THIRD_WORKER | grep Taints
 ```
 
 #### Step 2: Test Taints
@@ -1471,7 +1499,7 @@ kubectl apply -f production-app.yaml
 # Check placement
 kubectl get pods -l app=production-app -o wide
 
-# Pods can now schedule on workloads-lab-worker
+# Pods can now schedule on the node with environment=production taint
 ```
 
 #### Step 4: Database with Toleration
@@ -1526,7 +1554,7 @@ kubectl apply -f database-toleration.yaml
 # Check placement
 kubectl get pods -l app=database-app -o wide
 
-# Pods should be on workloads-lab-worker2
+# Pods should be on the node with workload=database taint
 ```
 
 #### Step 5: Wildcard Tolerations
@@ -1576,14 +1604,17 @@ spec:
 ```
 
 ```bash
-# Remove previous NoExecute taint
-kubectl taint nodes workloads-lab-worker3 maintenance=true:NoExecute-
+# Get the node that has the maintenance taint (use the variable from Step 1)
+NODE_WITH_MAINTENANCE=$THIRD_WORKER
 
-# Apply pod on worker3
+# Remove previous NoExecute taint
+kubectl taint nodes $NODE_WITH_MAINTENANCE maintenance=true:NoExecute-
+
+# Apply pod on the node
 kubectl apply -f eviction-test.yaml
 
 # Add NoExecute taint again
-kubectl taint nodes workloads-lab-worker3 maintenance=true:NoExecute
+kubectl taint nodes $NODE_WITH_MAINTENANCE maintenance=true:NoExecute
 
 # Watch pod get evicted after 30 seconds
 kubectl get pod eviction-test --watch
@@ -1592,10 +1623,10 @@ kubectl get pod eviction-test --watch
 #### Step 7: Remove Taints
 
 ```bash
-# Remove all taints
-kubectl taint nodes workloads-lab-worker environment=production:NoSchedule-
-kubectl taint nodes workloads-lab-worker2 workload=database:NoSchedule-
-kubectl taint nodes workloads-lab-worker3 maintenance=true:NoExecute-
+# Remove all taints (use the same variables from Step 1)
+kubectl taint nodes $FIRST_WORKER environment=production:NoSchedule-
+kubectl taint nodes $SECOND_WORKER workload=database:NoSchedule-
+kubectl taint nodes $THIRD_WORKER maintenance=true:NoExecute-
 
 # Verify
 kubectl describe nodes | grep Taints
@@ -1959,7 +1990,8 @@ kubectl get pdb
 kubectl describe pdb critical-app-pdb
 
 # Try to drain a node (will respect PDB)
-# kubectl drain workloads-lab-worker --ignore-daemonsets --delete-emptydir-data
+# Replace <node-name> with your actual node name
+# kubectl drain <node-name> --ignore-daemonsets --delete-emptydir-data
 ```
 
 ### Production Checklist
