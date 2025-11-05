@@ -1,7 +1,9 @@
 # 👋 Hi, I'm Nipuna Perera
 
 I'm a seasoned professional specializing in managing complex database environments to ensure robustness and high availability. At Udemy, I have over 3 years of experience as a Senior Staff Datastore Reliability Engineer, where I've successfully scaled Redis clusters, migrated Apache Kafka to AWS MSK, and conducted extensive R&D. 
+
 My background includes over 16 years of working with Linux, giving me a deep understanding of Linux internals and proficiency in bash scripting. I have a broad range of experience with Linux-hosted database systems, Kubernetes, and AWS cloud-native managed databases. Additionally, I’ve worked with MySQL since version 4.2, gaining extensive knowledge of MySQL internals.
+
 Previously, I led the EMEA DBA team at Zendesk, where we maintained a 99.95% availability for AWS Aurora/RDS MySQL production environments, supporting a vast customer base. Our efforts in developing analytics platforms and a Go-based monitoring tool significantly enhanced data-driven decision-making and database performance.
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-nipunap-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/nipunap/)
@@ -10,7 +12,7 @@ Previously, I led the EMEA DBA team at Zendesk, where we maintained a 99.95% ava
 
 I'm a **Senior Staff Datastore Reliability Engineer at Udemy** with 16+ years of experience in database technologies, cloud infrastructure, and automation. I've successfully:
 
-- 🚀 Scaled Redis clusters beyond 1TB (working on a migration project from Redis Enterprise to AWS ElastiCache Valkey)
+- 🚀 Scaled and maintained large-scale Redis clusters for high-availability production environments
 - 🔬 Led extensive R&D projects for database optimization
 - ⚡ Managed 200+ database clusters with 99.95% uptime
 - 🔄 Migrated 50+ Kafka applications handling 2M+ messages/day
