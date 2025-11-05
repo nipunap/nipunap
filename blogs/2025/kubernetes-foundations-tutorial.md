@@ -12,7 +12,10 @@ Watch the complete video walkthrough of this tutorial:
 
 <div align="center">
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/P-MIuK1BU_s" title="Kubernetes Foundations Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="max-width: 100%; height: auto; aspect-ratio: 16/9;"></iframe>
+[![Kubernetes Foundations Tutorial](https://img.youtube.com/vi/P-MIuK1BU_s/maxresdefault.jpg)](https://www.youtube.com/watch?v=P-MIuK1BU_s)
+
+<!-- Embedded video player (works on GitHub Pages) -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/P-MIuK1BU_s" title="Kubernetes Foundations Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="max-width: 100%; height: auto; aspect-ratio: 16/9; margin-top: 1rem;"></iframe>
 
 </div>
 
